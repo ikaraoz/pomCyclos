@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [payment-module]" parallel="tests">
+  <test thread-count="5" name="Negative Payment - zero amount(failed)" parallel="tests">
+    <parameter name="amount" value="0.00"/>
+    <parameter name="errorMessage" value="Amount must be a positive number.1"/>
+    <classes>
+      <class name="com.paymentModule.PaymentTest">
+        <methods>
+          <include name="setUpAmount"/>
+          <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="paymentAmountNegative"/>
+        </methods>
+      </class> <!-- com.paymentModule.PaymentTest -->
+    </classes>
+  </test> <!-- Negative Payment - zero amount(failed) -->
+  <test thread-count="5" name="Negative Payment - more than transactional limit(failed)" parallel="tests">
+    <parameter name="amount" value="500.01"/>
+    <parameter name="errorMessage" value="Amount must be less or equal to 500,00 IU&#039;s.1"/>
+    <classes>
+      <class name="com.paymentModule.PaymentTest">
+        <methods>
+          <include name="setUpAmount"/>
+          <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="paymentAmountNegative"/>
+        </methods>
+      </class> <!-- com.paymentModule.PaymentTest -->
+    </classes>
+  </test> <!-- Negative Payment - more than transactional limit(failed) -->
+  <test thread-count="5" name="Positive Payment(failed)" parallel="tests">
+    <parameter name="amount" value="10"/>
+    <parameter name="errorMessage" value=""/>
+    <classes>
+      <class name="com.paymentModule.PaymentTest">
+        <methods>
+          <include name="setUpAmount"/>
+          <include name="testPaymentPositive"/>
+          <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.paymentModule.PaymentTest -->
+    </classes>
+  </test> <!-- Positive Payment(failed) -->
+  <test thread-count="5" name="Negative Payment - empty amount(failed)" parallel="tests">
+    <parameter name="amount" value=""/>
+    <parameter name="errorMessage" value="This field is required1"/>
+    <classes>
+      <class name="com.paymentModule.PaymentTest">
+        <methods>
+          <include name="setUpAmount"/>
+          <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="paymentAmountNegative"/>
+        </methods>
+      </class> <!-- com.paymentModule.PaymentTest -->
+    </classes>
+  </test> <!-- Negative Payment - empty amount(failed) -->
+</suite> <!-- Failed suite [payment-module] -->

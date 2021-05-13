@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [login-module]" parallel="tests">
+  <test thread-count="5" name="Negative login - username/password does not match1(failed)" parallel="tests">
+    <parameter name="password" value="12345"/>
+    <parameter name="errorMessage" value="The given name / password are incorrect. Please, try again."/>
+    <parameter name="username" value="demo"/>
+    <classes>
+      <class name="com.loginModule.LoginTest">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="setUpCredentials"/>
+          <include name="loginUsernamePasswordNoMatch"/>
+        </methods>
+      </class> <!-- com.loginModule.LoginTest -->
+    </classes>
+  </test> <!-- Negative login - username/password does not match1(failed) -->
+  <test thread-count="5" name="Negative login - empty username1(failed)" parallel="tests">
+    <parameter name="password" value="1234"/>
+    <parameter name="errorMessage" value="This field is required"/>
+    <parameter name="username" value=""/>
+    <classes>
+      <class name="com.loginModule.LoginTest">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="loginEmptyUsername"/>
+          <include name="setUpCredentials"/>
+        </methods>
+      </class> <!-- com.loginModule.LoginTest -->
+    </classes>
+  </test> <!-- Negative login - empty username1(failed) -->
+  <test thread-count="5" name="Positive Login1(failed)" parallel="tests">
+    <parameter name="password" value="1234"/>
+    <parameter name="errorMessage" value=""/>
+    <parameter name="username" value="demo"/>
+    <classes>
+      <class name="com.loginModule.LoginTest">
+        <methods>
+          <include name="loginPositive"/>
+          <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="setUpCredentials"/>
+        </methods>
+      </class> <!-- com.loginModule.LoginTest -->
+    </classes>
+  </test> <!-- Positive Login1(failed) -->
+  <test thread-count="5" name="Negative login - empty password1(failed)" parallel="tests">
+    <parameter name="password" value=""/>
+    <parameter name="errorMessage" value="This field is required"/>
+    <parameter name="username" value="demo"/>
+    <classes>
+      <class name="com.loginModule.LoginTest">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="setUp"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="setUpCredentials"/>
+          <include name="loginEmptyPassword"/>
+        </methods>
+      </class> <!-- com.loginModule.LoginTest -->
+    </classes>
+  </test> <!-- Negative login - empty password1(failed) -->
+</suite> <!-- Failed suite [login-module] -->
